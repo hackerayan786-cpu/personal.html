@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>The Forbidden Archive — VÆLZAROTH</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.archive-page {
+    min-height:100vh; padding:40px 5% 80px; color:#eee1e3;
+    background:radial-gradient(ellipse at top,#38101b 0%,#16090e 42%,#080608 100%);
+}
+.archive-header {max-width:1000px;margin:0 auto 40px;text-align:center}
+.archive-header h1 {color:#d8a6ad;font-family:Georgia,serif;font-size:clamp(2rem,5vw,4rem);letter-spacing:.12em;margin-bottom:12px}
+.archive-header p {color:#bda7ad;line-height:1.8}
+.archive-back {display:inline-block;margin-bottom:28px;color:#d8a6ad;text-decoration:none}
+.archive-back:hover {color:#fff}
+.archive-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1400px;margin:0 auto}
+.archive-card {display:flex;flex-direction:column;min-width:0;padding:20px;background:linear-gradient(145deg,#211117,#100a0d);border:1px solid #59303a;border-radius:8px;box-shadow:0 12px 35px #0007;transition:transform .25s,border-color .25s;overflow:hidden}
+.archive-card:hover {transform:translateY(-4px);border-color:#a65a6b}
+.archive-number {color:#a96b78;font-size:.75rem;letter-spacing:.2em}
+.archive-card h2 {color:#f0dce0;font:1.15rem/1.5 Georgia,serif;margin:14px 0;overflow-wrap:anywhere}
+.archive-card p {color:#b8a5aa;font-size:.9rem;line-height:1.7;flex-grow:1}
+.archive-player {display:block;width:100%;aspect-ratio:16/9;border:1px solid #59303a;border-radius:6px;background:#080608;margin:12px 0}
+.archive-placeholder {display:flex;align-items:center;justify-content:center;text-align:center;aspect-ratio:16/9;margin:12px 0;border:1px solid #59303a;border-radius:6px;background:radial-gradient(ellipse,#401521,#090709);color:#c89aa5;font:1rem Georgia,serif;padding:16px}
+.archive-actions {display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.archive-button {display:inline-flex;justify-content:center;align-items:center;padding:11px 14px;background:#641b2c;border:1px solid #96515f;border-radius:4px;color:#fff0f2;text-decoration:none;font-size:.85rem;transition:background .2s}
+.archive-button:hover {background:#84283d}
+.archive-button.secondary {background:transparent;border-color:#60414a;color:#d9bfc5}
+.archive-button.secondary:hover {background:#321923}
+.archive-note {max-width:900px;margin:36px auto 0;color:#a9939a;font-size:.85rem;line-height:1.8;text-align:center}
+@media(max-width:1000px){.archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.archive-page{padding:25px 16px 50px}.archive-grid{grid-template-columns:1fr;gap:15px}.archive-card{padding:16px}.archive-actions a{flex:1 1 100%}}
+</style>
+</head>
+<body class="gallery-page">
+<main class="archive-page">
+<header class="archive-header">
+<a class="archive-back" href="index.html">← Return to VÆLZAROTH</a>
+<h1>THE FORBIDDEN ARCHIVE</h1>
+<p>Twenty-five paths into the shadows.<br>Choose an entry to attempt playback or visit its original source.</p>
+</header>
+<section class="archive-grid" id="archiveGrid" aria-label="Video link collection"></section>
+<p class="archive-note">Embedded playback depends on each provider allowing external players. If a player is blank or blocked, use the original source link. Availability, age restrictions, and download options are controlled by the source website.</p>
+</main>
+<script>
+const videos = [
+        {
+                "title": "Respect the Bible",
+                "url": "https://www.tnaflix.com/brunette-porn/RESPECT-THE-BIBLE/video4545987"
+        },
+        {
+                "title": "Jealous GF Confronts You About Your Religion",
+                "url": "https://www.tnaflix.com/hd-videos/Jealous-Gf-Confronts-You-About-Your-Religion/video4565121"
+        },
+        {
+                "title": "Repent Your Sin — Blasphemy Nun",
+                "url": "https://www.tnaflix.com/big-boobs/Repent-Your-Sin-Blasphemy-Nun/video11604129"
+        },
+        {
+                "title": "God Never Forgive You",
+                "url": "https://www.tnaflix.com/anal-porn/God-Never-Forgive-You/video10972858"
+        },
+        {
+                "title": "Angry Slut Defiles Bible",
+                "url": "https://www.tnaflix.com/hd-videos/ANGRY-SLUT-DEFILES-BIBLE-%2AGONE-SEXUAL%2A/video4462652"
+        },
+        {
+                "title": "Bible Gets Me Hot",
+                "url": "https://www.tnaflix.com/hd-videos/BIBLE-GETS-ME-HOT/video4577043"
+        },
+        {
+                "title": "Nun Masturbates",
+                "url": "https://www.tnaflix.com/babe-videos/Nun-masturbates/video6430418"
+        },
+        {
+                "title": "Arab Mistress — External Entry",
+                "url": "https://jizzbunker.com/4249096/-arab-mistress-degrades-islam-blasphemy.html?utm_campaign=d671525e3650215e4728ff9cf87afd1d&utm_source=nudevista.com&utm_medium=cpc"
+        },
+        {
+                "title": "Princess Miki — Real Blasphemy",
+                "url": "https://www.drtuber.com/video/9742190/princess-miki-real-blasphemy"
+        },
+        {
+                "title": "The Antichristrix — External Entry",
+                "url": "https://video.nudevista.com/video/MTY2MTkyNzM4Mi0yNC0vP3E9Ymxhc3BoZW15JnM9dCZzdGFydD0yNS0wLWh0dHBzOi8vZHJ0dmlkLmNvbS92L0x2dlo=-the-antichristrix-blasphemy-help.html"
+        },
+        {
+                "title": "Blasphemy Nun — External Entry",
+                "url": "https://video.nudevista.com/video/MTc0NjYwMjAxMi04LS8/cT1ibGFzcGhlbXkmcz10JnN0YXJ0PTUwLTAtaHR0cHM6Ly9kcnR2aWQuY29tL3YvTVFWZg==-blasphemy-nun.html"
+        },
+        {
+                "title": "The Blasphemist — Your Humiliation Begins Now",
+                "url": "https://darknessporn.com/207398-the-blasphemist-e03-your-humiliation-begins-now-free-video/"
+        },
+        {
+                "title": "Forsake Him — Priestess Blasphemy",
+                "url": "https://darknessporn.com/45608-forsake-him-priestess-blasphemy-religious/"
+        },
+        {
+                "title": "Bratty Jamie — External Entry",
+                "url": "https://video.nudevista.com/video/MTM1NzkwODMzMi02LS8/cT1ibGFzcGhlbXkmcz10JnN0YXJ0PTEyNS0wLWh0dHBzOi8vdmlkZW9oY2xpcHMuY29tL3ZpZGVvcy83NDk4ODA1L2JyYXR0eSNqYW1pZSNibGFzcGhlbXkjcXVyYW5jaHVtaWxhdGlvbi8/cHJvbW89MTAzNzY=-bratty-jamie-blasphemy-quran-humilation.html"
+        },
+        {
+                "title": "Nun Jesus Dildo Fun — External Entry",
+                "url": "https://video.nudevista.com/video/MTkzNjQ4MDM2Mi0xOC0vP3E9Ymxhc3BoZW15JnM9dCZzdGFydD0xMjUtMC1odHRwczovL3ZpZGVvdHh4eC5jb20vdmlkZW9zLzExMjU1MDE0L251biNqZXN1cyNkaWxkbyNmdW4jYmxhc3BoZW15Lz9wcm9tbz0xMDM3Ng==-nun-jesus-dildo-fun-blasphemy.html"
+        },
+        {
+                "title": "Darkness of Christ",
+                "url": "https://jizzbunker.com/2483509/darkness-of-christ.html?utm_campaign=d671525e3650215e4728ff9cf87afd1d&utm_source=nudevista.com&utm_medium=cpc&asgtbndr=1"
+        },
+        {
+                "title": "External Video Entry 16",
+                "url": "https://hdsex.org/video/309499344?utm_campaign=nudevista&utm_medium=click&utm_source=nudevista&asgtbndr=1&referrer=nudevista.com"
+        },
+        {
+                "title": "Welcome to Hell",
+                "url": "https://spankbang.com/49yc9/video/welcum+to+hell"
+        },
+        {
+                "title": "External Video Entry 18",
+                "url": "https://spankbang.com/8qfjg/video/tight+muslim+holes+goongpt"
+        },
+        {
+                "title": "Broken Vessels — PMV",
+                "url": "https://spankbang.com/7dkj9/video/broken+vessels+pmv"
+        },
+        {
+                "title": "Femdom Nun Feet JOI",
+                "url": "https://spankbang.com/88o15/video/femdom+nun+feet+joi"
+        },
+        {
+                "title": "Flatshoes Nun Solo",
+                "url": "https://spankbang.com/a0vu/video/flatshoes+nun+solo"
+        },
+        {
+                "title": "Praise Jesus",
+                "url": "https://spankbang.com/1i2h6/video/praise+jesus"
+        },
+        {
+                "title": "Taking Your Soul",
+                "url": "https://spankbang.com/3r6rm/video/taking+your+soul"
+        }
+];
+
+const grid = document.getElementById("archiveGrid");
+
+videos.forEach((video, index) => {
+    const card = document.createElement("article");
+    card.className = "archive-card";
+
+    const number = document.createElement("span");
+    number.className = "archive-number";
+    number.textContent = `ENTRY ${String(index + 1).padStart(2, "0")}`;
+
+    const title = document.createElement("h2");
+    title.textContent = video.title;
+
+    const description = document.createElement("p");
+    const actions = document.createElement("div");
+    actions.className = "archive-actions";
+
+    const watch = document.createElement("a");
+    watch.className = "archive-button";
+    watch.href = video.url;
+    watch.target = "_blank";
+    watch.rel = "noopener noreferrer";
+    watch.textContent = "Open Video Source ↗";
+
+    const player = document.createElement("iframe");
+    player.className = "archive-player";
+    player.title = video.title;
+    player.loading = "lazy";
+    player.allowFullscreen = true;
+    player.referrerPolicy = "strict-origin-when-cross-origin";
+    player.allow = "fullscreen; autoplay";
+
+    let embedUrl = "";
+
+    // These are candidate URL patterns, not guaranteed official embed links.
+    if (video.url.includes("spankbang.com/")) {
+        const match = video.url.match(/spankbang\.com\/([a-z0-9]+)\/video/i);
+        if (match) embedUrl = `https://spankbang.com/${match[1]}/embed/`;
+    } else if (video.url.includes("drtuber.com/video/")) {
+        const match = video.url.match(/drtuber\.com\/video\/(\d+)/i);
+        if (match) embedUrl = `https://www.drtuber.com/embed/${match[1]}`;
+    } else if (video.url.includes("tnaflix.com/")) {
+        const match = video.url.match(/video(\d+)/i);
+        if (match) embedUrl = `https://player.tnaflix.com/video/${match[1]}`;
+    }
+
+    if (embedUrl) {
+        player.src = embedUrl;
+        description.textContent = "If playback is unavailable, open the original source.";
+        card.append(number, player, title, description);
+    } else {
+        const placeholder = document.createElement("div");
+        placeholder.className = "archive-placeholder";
+        placeholder.textContent = "THE FORBIDDEN ARCHIVE";
+        description.textContent = "An embedded player URL is not configured for this source yet.";
+        card.append(number, placeholder, title, description);
+    }
+
+    actions.appendChild(watch);
+    card.appendChild(actions);
+    grid.appendChild(card);
+});
+</script>
+</body>
+</html>
